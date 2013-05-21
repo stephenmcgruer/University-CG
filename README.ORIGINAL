@@ -1,0 +1,101 @@
+Name:    Stephen McGruer
+Matric:  0840449
+
+This file is a README for my submission for the CG Coursework 2. It
+describes how to run my code and what I have implemented.
+
+#####################
+Building the project.
+#####################
+
+The project is pre-compiled into the executable "./bin/teapot".  Should you
+wish to re-compile the source files, or re-generate the documentation, a
+Makefile is provided. Running "make" will compile the code. Running "make
+doxygen" will generate the documentation. Finally, running "make clean" will
+remove the files in the ./bin folder and the documentation.
+
+####################
+Running the project.
+####################
+
+./bin/teapot [-s shading_algorithm] object_file_name
+
+The possible options for line_algorithm are:
+    Flat
+    Gourard
+    Phong
+    Spherical
+
+If no shading algorithm is given, Phong is chosen as the default.
+
+########################
+Controlling the project.
+########################
+
+I have implemented both keyboard and mouse controls for transforming the model.
+Using the keyboard one can translate, rotate, and scale the model. Using the
+mouse one can translate, rotate, and scale the model. Shading constants can
+also be altered using the keyboard. The controls are:
+
+Keyboard:
+  W,A,S,D to translate the object up, left, down, and right.
+  I,J,K,L to rotate the object up, left, down, and right.
+  +, - to scale the object up, and down.
+  R and F to increase/decrease the value of k_a
+  T and G to increase/decrease the value of k_d
+  Y and H to increase/decrease the value of k_s
+  P and ; to increase/decrease the value of i_a
+  [ and ' to increase/decrease the value of i_d
+  ] and # to increase/decrease the value of i_s
+  \ and Z to increase/decrease the value of alpha
+  X and C to increase/decrease the red value of the object
+  V and B to increase/decrease the green value of the object
+  N and M to increase/decrease the blue value of the object
+  . to toggle shadows on/off   -- only works for Phong shading.
+  / to toggle anti-aliasing on/off
+
+Mouse:
+  Click and drag with the left button to rotate the object.
+  Click and drag with the right button to translate the object.
+  Scroll with the scroll wheel to scale the object.
+
+#################
+Project Features.
+#################
+
+Shading algorithms implemented:
+  * Flat shading
+  * Gourard shading
+  * Phong shading
+
+Extra features implemented:
+  * Spherical environment mapping.
+
+  * Texture mapping, for the floor.
+      --> Only linear interpolation was used, not hyperbolic.
+
+  * Anti-aliasing.
+      --> Note that as it takes 4 passes over the points and requires
+          drawing the entire screen via Vertex2i, AA is VERY slow.
+
+  * Shadow mapping.
+      --> There is a small bug where the shadow won't be drawn fully as 
+          the left-most edge of the shadow (in the default light and teapot
+          position) is outside of the screen when projected into the light
+          viewpoint. This should be fixed by not restricting the light's view
+          to the normal viewing port (as it should not be; it was left this
+          way for simplicity and speed.)
+
+I also wrote a short python script to clean up object files, as I noticed that
+the Teapot has numerous vertices that appear as a single point in 3D space, but
+are represented in the file multiple times.  This causes lines to appear on the
+Teapot where the different polygons meet but do not join. The resulting object
+file (MIT_teapot_fixed.obj) is much smoother - see "before_fixing.png" and 
+"after_fixing.png" in the screenshots directory for an example.
+
+############
+Screenshots.
+############
+
+A set of screenshots can be found in the images/ directory, which show the teapot
+under various shading algorithms.

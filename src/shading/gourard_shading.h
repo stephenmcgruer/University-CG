@@ -1,0 +1,40 @@
+//! \author Stephen McGruer
+
+#ifndef SRC_SHADING_GOURARDSHADING_H_
+#define SRC_SHADING_GOURARDSHADING_H_
+
+#include "./shading_algorithm.h"
+
+namespace computer_graphics {
+
+//! \class GourardShading
+//! \brief Shades a scene using the Gourard shading approach.
+class GourardShading : public ShadingAlgorithm {
+  public:
+    inline GourardShading() { };
+
+    //! \brief Calculates the shading for each visible triangle in the mesh, and
+    //!        places it in the points variable.
+    //!
+    //! Each pixel in a triangle is shaded by calculating the shading at each of
+    //! the triangle's vertices, then interpolating the three shadings for each
+    //! point.
+    //!
+    //! The image variable is ignored.
+    void Shade(TriangleMesh object, TriangleMesh the_floor, WindowInfo window_info,
+        Vertex light_position, Vertex view_position, std::vector<Vertex>& points,
+        IplImage* image = NULL);
+
+  private:
+    //! \brief Renders an object in the scene.
+    //!
+    //! Expects the z-buffer to be already initialised. Takes control of it during
+    //! the function, and will update it.
+    void RenderObject(TriangleMesh the_object, WindowInfo window_info,
+        Vertex light_position, Vertex view_position,
+        std::vector<std::vector<float> >& z_buffer,
+        std::vector<Vertex>& points);
+};
+}
+
+#endif // SRC_SHADING_GOURARDSHADING_H_
