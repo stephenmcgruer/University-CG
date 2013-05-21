@@ -1,6 +1,6 @@
 # Computer Graphics
 
-This repository contains my coursework for the 4th Year [Computer Graphics](http://homepages.inf.ed.ac.uk/tkomura/cg) course, taken in 2011/2012. There were two pieces of coursework during the CG course; however, as the second built on top of the first only the final project is stored here. The coursework revolved around implementing a system that was capable of displaying a wireframe and fully rendered model of a [teapot](http://inst.eecs.berkeley.edu/~cs184/sp09/assignments/teapot.obj) (i.e. <b>not</b> using OpenGL!).
+This repository contains my coursework for the 4th Year [Computer Graphics](http://www.inf.ed.ac.uk/teaching/courses/cg/) course, taken in 2011/2012. There were two pieces of coursework during the CG course; however, as the second built on top of the first only the final project is stored here. The coursework revolved around implementing a system that was capable of displaying a wireframe and fully rendered model of a [teapot](http://inst.eecs.berkeley.edu/~cs184/sp09/assignments/teapot.obj) (i.e. <b>not</b> using OpenGL!).
 
 Coursework for other courses can be found in my main [University Coursework](https://github.com/stephenmcgruer/University) repository.
 
